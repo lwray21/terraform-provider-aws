@@ -408,7 +408,7 @@ func vpcEndpointAccept(conn *ec2.EC2, vpceId, svcName string, timeout time.Durat
 	}
 
 	stateConf := &resource.StateChangeConf{
-		Pending:    []string{"pendingAcceptance"},
+		Pending:    []string{"pendingAcceptance", "pending"},
 		Target:     []string{"available"},
 		Refresh:    vpcEndpointStateRefresh(conn, vpceId),
 		Timeout:    timeout,
